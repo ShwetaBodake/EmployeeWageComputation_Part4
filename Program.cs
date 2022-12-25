@@ -7,13 +7,13 @@ namespace EmployeeWageComputation_Part4
         public static void Main(string[] args)
         {
             Console.WriteLine("Wel_Come to Employee Wage Computation Problem");
-            Wages_Till_WorkingDay_Hour WagesTillWorkingDayHour = new Wages_Till_WorkingDay_Hour();
-            WagesTillWorkingDayHour.WagesTillWorkingDayHour();
+            RefactorEmpWageComputation WagesTillWorkingDayHour = new RefactorEmpWageComputation();
+            WagesTillWorkingDayHour.EmpWageComputation();
         }
 
-        public class Wages_Till_WorkingDay_Hour
+        public class RefactorEmpWageComputation
         {
-            public void WagesTillWorkingDayHour()
+            public void EmpWageComputation()
             {
 
                 int Is_Part_Time = 2;
