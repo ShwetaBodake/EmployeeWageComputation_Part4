@@ -7,36 +7,45 @@ namespace EmployeeWageComputation_Part4
         public static void Main(string[] args)
         {
             Console.WriteLine("Wel_Come to Employee Wage Computation Problem");
-            DailyEmpWage_UC2 dailyWage = new DailyEmpWage_UC2();
-            dailyWage.DailyWage();
+            UsingSwitchCase UsingSwitchCase = new UsingSwitchCase();
+            UsingSwitchCase.CalculateEmpWage();
         }
 
 
-        public class DailyEmpWage_UC2
+
+        public class UsingSwitchCase
         {
-            public void DailyWage()
+            public void CalculateEmpWage()
             {
-                int Wage_per_Hour = 20;
-                int Full_Day_Hour = 8;
-                Random random = new Random();
-                int isPresent = random.Next(0, 2);
+                int Is_Part_Time = 1;
+                int Is_Full_Time = 2;
+                int Emp_Rate_per_Hour = 20;
 
-                //Console.WriteLine(isPresent);
-                if (isPresent == 1)
-                {
-                    Console.WriteLine("Employee is PRESENT");
-                    int DailyWge = Wage_per_Hour * Full_Day_Hour;
-                    Console.WriteLine("Daily wage of employee is " + DailyWge);
+                int empHours = 0;
+                int empWage = 0;
+                Random random1 = new Random();
+                int CheckEmp = random1.Next(0, 3);
 
-                }
-                else
+                switch (CheckEmp)
                 {
-                    Console.WriteLine("Employee is Absent");
+                    case 1:
+                        //case 1:
+                        empHours = 4;
+                        break;
+                    //	case Is_Full_Time:
+                    case 2:
+                        empHours = 8;
+                        break;
+                    default:
+                        empHours = 0;
+                        break;
                 }
+                empWage = empHours * Emp_Rate_per_Hour;
+
+                Console.WriteLine("Emp Wage:- " + empWage);
 
 
             }
         }
-
     }
 }
