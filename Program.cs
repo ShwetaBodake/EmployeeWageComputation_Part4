@@ -7,45 +7,57 @@ namespace EmployeeWageComputation_Part4
         public static void Main(string[] args)
         {
             Console.WriteLine("Wel_Come to Employee Wage Computation Problem");
-            UsingSwitchCase UsingSwitchCase = new UsingSwitchCase();
-            UsingSwitchCase.CalculateEmpWage();
+            WagesForMonth_UC5 WagesForMonth = new WagesForMonth_UC5();
+            WagesForMonth.WagesForMonth();
         }
 
 
-
-        public class UsingSwitchCase
+        public class WagesForMonth_UC5
         {
-            public void CalculateEmpWage()
+            public void WagesForMonth()
             {
-                int Is_Part_Time = 1;
-                int Is_Full_Time = 2;
+                int Working_Day_For_Month = 20;
+                int Is_Part_Time = 2;
+                int Is_Full_Time = 1;
                 int Emp_Rate_per_Hour = 20;
 
                 int empHours = 0;
-                int empWage = 0;
-                Random random1 = new Random();
-                int CheckEmp = random1.Next(0, 3);
+                //int empwage = 0;
+                int totalempwage = 0;
 
-                switch (CheckEmp)
+                Random random = new Random();
+                int Checkemp = random.Next(0, 3);
+
+                for (int day = 1; day <= Working_Day_For_Month; day++)
                 {
-                    case 1:
-                        //case 1:
-                        empHours = 4;
-                        break;
-                    //	case Is_Full_Time:
-                    case 2:
-                        empHours = 8;
-                        break;
-                    default:
-                        empHours = 0;
-                        break;
+                    switch (Checkemp)
+                    {
+                        case 1:
+                            empHours = 8;
+                            break;
+
+                        case 2:
+                            empHours = 4;
+                            break;
+
+                        default:
+
+                            empHours = 0;
+                            break;
+
+                    }
+                    int daily_empwage = empHours * Emp_Rate_per_Hour;
+                    //int monthly_emp_wage = daily_empwage * Working_Day_For_Month;
+                    Console.WriteLine("Daily Employee Wage:-" + daily_empwage);
+                    totalempwage += daily_empwage;
+
                 }
-                empWage = empHours * Emp_Rate_per_Hour;
-
-                Console.WriteLine("Emp Wage:- " + empWage);
-
+                Console.WriteLine("Total Employee wage:-" + totalempwage);
 
             }
         }
+
+
+
     }
 }
